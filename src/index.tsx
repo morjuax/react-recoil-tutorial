@@ -3,11 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { RecoilRoot } from 'recoil';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Display from './views/Display';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <RecoilRoot>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />}/>
+        <Route path="display" element={<Display/>} />
+        <Route path='*' element={<div>Not found</div>}/>
+      </Routes>
+    </BrowserRouter>
+  </RecoilRoot>,
   document.getElementById('root')
 );
 
